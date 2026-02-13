@@ -56,5 +56,5 @@ def total_accel():
     return math.sqrt(sum(number ** 2 for number in accel()))
 
 def read():
-    '''Returns scalars X, Y, Z for accel, gyro, mag, temp in F.'''
-    return accel(), gyro(), mag(), temp()
+    '''Returns scalars X, Y, Z for accel, gyro, temp in F.'''
+    return accel(), gyro(), temp()

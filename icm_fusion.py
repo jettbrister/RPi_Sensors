@@ -20,7 +20,6 @@ while True:
 		gyro = imufusion.Offset(round(1/dt)).update(np.array(gyro))
 		ahrs.update(gyro, np.array(accel), np.array(mag), dt)
 		euler = ahrs.quaternion.to_euler()
-		#button_state = button.state()
 		print(euler)
 	except KeyboardInterrupt:
 		print('Program stopped')
