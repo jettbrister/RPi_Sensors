@@ -7,6 +7,7 @@ import bme280
 calibration_params = bme280.load_calibration_params()
 
 # Functions for reading data:
+
 def temp():
     '''Returns temperature. Fahrenheit=False for C. Default 4x oversampling.'''
     return (bme280.sample(calibration_params).temperature * 9/5) + 32

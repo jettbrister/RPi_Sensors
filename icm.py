@@ -2,7 +2,6 @@
 # https://github.com/pimoroni/icm20948-python
 import icm20948
 import math
-import csv
 
 # Initialize icm object
 imu = icm20948.ICM20948()

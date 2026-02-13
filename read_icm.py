@@ -3,8 +3,6 @@ import icm
 t = time.perf_counter()
 while True:
 	try:
-		dt = time.perf_counter() - t
-		t = time.perf_counter()
 		accel, gyro, mag, temp = icm.read()
 		print(accel,gyro,mag)
 	except KeyboardInterrupt:
