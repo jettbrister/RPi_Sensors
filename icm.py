@@ -3,7 +3,6 @@
 import icm20948
 import math
 import csv
-import smbus2
 
 # Initialize icm object
 imu = icm20948.ICM20948()
