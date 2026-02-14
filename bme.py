@@ -9,15 +9,19 @@ calibration_params = bme280.load_calibration_params()
 # Functions for reading data:
 
 def temp():
-    '''Returns temperature. Fahrenheit=False for C. Default 4x oversampling.'''
+    '''Returns temperature in F.'''
     return (bme280.sample(calibration_params).temperature * 9/5) + 32
 
+def temp_c():
+    '''Returns temperature in C.'''
+    return bme.sample(calibration_params).temperature
+
 def pressure():
-    '''Returns pressure. Units: hPa. Default 4x oversampling.'''
+    '''Returns pressure. Units: hPa.'''
     return bme280.sample(calibration_params).pressure
 
 def humidity():
-    '''Returns RH in %. Default 4x oversampling.'''
+    '''Returns RH in %.'''
     return bme280.sample(calibration_params).humidity
 
 def read():
