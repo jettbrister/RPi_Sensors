@@ -3,10 +3,21 @@
 import icm20948
 import math
 
+
 # Initialize icm object
 imu = icm20948.ICM20948()
-imu.set_accelerometer_sample_rate()
-imu.set_gyro_sample_rate()
+
+
+# Initialize accelerometer and gyro settings
+
+imu.set_accelerometer_sample_rate() '''value in hz, default=125'''
+imu.set_accelerometer_full_scale() '''2, 4, 8, 16 g, default=16'''
+#imu.set_accelerometer_low_pass() No Clue Yet
+
+imu.set_gyro_sample_rate() '''value in hz, default=125'''
+set_gyro_full_scale() '''250, 500, 1000, 2000 dps, default=250'''
+#set_gyro_low_pass() No CLue Yet
+
 
 # Read magnetometer calibration data into dict
 mag_calibration = []
