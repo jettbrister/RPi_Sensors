@@ -16,6 +16,10 @@ def tVOC():
 	'''Returns total VOC in ppb'''
 	return sgp30.TVOC
 
+def read():
+	'''Returns eCO2 (ppm), tVOC (ppb)'''
+	return eCO2(), tVOC()
+
 def raw_values():
 	'''Returns [Raw H2 Signal, Raw Ethanol Signal].'''
 	return [sgp30.H2, sgp30.Ethanol]
