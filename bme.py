@@ -14,7 +14,7 @@ def temp():
 
 def temp_c():
     '''Returns temperature in C.'''
-    return bme.sample(calibration_params).temperature
+    return bme280.sample(calibration_params).temperature
 
 def pressure():
     '''Returns pressure. Units: hPa.'''
