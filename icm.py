@@ -15,6 +15,9 @@ with open('mag_calibration.csv', 'r') as file:
         mag_calibration.append(line.strip().split(','))
 mag_calibration = dict(zip(mag_calibration[0],(float(x) for x in mag_calibration[1])))
 
+
+# Calibration Functions:
+
 def mag_calibrate():
     '''Update magnetometer calibration from mag_calibration.csv'''
     global mag_calibration
@@ -23,6 +26,9 @@ def mag_calibrate():
         for line in file:
             mag_calibration.append(line.strip().split(','))
     mag_calibration = dict(zip(mag_calibration[0],(float(x) for x in mag_calibration[1])))
+
+
+# Functions for Reading Data:
 
 def mag_uncal():
     '''Return uncalibrated magnetometer data'''
@@ -57,3 +63,7 @@ def total_accel():
 def read():
     '''Returns scalars X, Y, Z for accel, gyro, temp in F.'''
     return accel(), gyro(), temp()
+
+def full_read():
+    '''Returns scalars X, Y, Z for accel, gyro, mag, temp in F.'''
+    return accel(), gyro(), mag(), temp()
