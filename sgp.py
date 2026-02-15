@@ -59,3 +59,4 @@ def load_baseline():
 	with open(BASELINE_FILE, 'r') as file:
 		data = json.load(file)
 	set_baseline(data['eco2'], data['tvoc'])
+	return True
