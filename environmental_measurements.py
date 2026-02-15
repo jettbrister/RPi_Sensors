@@ -2,19 +2,15 @@ import time
 import sgp
 import bme
 
-warmup=0
-while warmup<16:
-	print('Warming Up')
-	warmup+=1
-	time.sleep(1)
+print('Warming Up SGP30...')
+time.sleep(16)
 
 while True:
 	try:
-		temp, pressure, humidity = bme.read()
-		temp_c = bme.temp_c()
-		eco2, tvoc = sgp.read()
+		temp_c, pressure, humidity = bme.read(F=False)
 		sgp.set_rh(humidity, temp_c)
-		print(temp, pressure, humidity, eco2, tvoc)
+		eco2, tvoc = sgp.read()
+		print(temp_c, pressure, humidity, eco2, tvoc)
 		time.sleep(1)
 	except KeyboardInterrupt:
 		print('Program stopped')
