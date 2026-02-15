@@ -24,6 +24,9 @@ def humidity():
     '''Returns RH in %.'''
     return bme280.sample(calibration_params).humidity
 
-def read():
+def read(F=True):
     '''Returns temp (F), pressure (hPa), humidity (%)'''
-    return temp(), pressure(), humidity()
+    if F:
+        return temp(), pressure(), humidity()
+    else:
+        return temp_c(), pressure(), humidity()
