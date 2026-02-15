@@ -52,7 +52,7 @@ def save_baseline():
 	with open(BASELINE_FILE, 'w') as file:
 		json.dump(data, file)
 
-def load_baseline()
+def load_baseline():
 	'''Loads baseline values from json'''
 	if not os.path.exists(BASELINE_FILE):
 		return False
