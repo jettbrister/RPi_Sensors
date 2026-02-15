@@ -8,6 +8,8 @@ import csv
 print('Warming Up SGP30...')
 time.sleep(16)
 
+sgp.sgp30.iaq_init()
+
 LOG_FILE = 'environmental_log.csv'
 BASELINE_INTERVAL = 6 * 60 * 60  # 6 hours
 
@@ -15,8 +17,13 @@ with open(LOG_FILE, 'w', newline='') as file:
 	writer = csv.writer(file)
 	writer.writerow(['timestamp','temp_c','pressure','humidity','eco2','tvoc'])
 
-sgp.load_baseline()
+if sgp.load_baseline():
+	print('Baseline Loaded')
+else:
+	print('No Baseline Found')
 last_baseline = time.time()
+
+next_t = time.monotonic()
 
 while True:
 	try:
@@ -30,9 +37,11 @@ while True:
 		if time.time() - last_baseline > BASELINE_INTERVAL:
 			sgp.save_baseline()
 			last_baseline = time.time()
-		time.sleep(1)
+		next_t += 1
+		time.sleep(max(0, next_t - time.monotonic()))
 	except KeyboardInterrupt:
 		print('Program stopped')
+		sgp.save_baseline()
 		break
 	except Exception as e:
 		print('An unexpected error occurred:', str(e))
