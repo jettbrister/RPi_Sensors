@@ -30,3 +30,4 @@ def read(F=True):
         return temp(), pressure(), humidity()
     else:
         return temp_c(), pressure(), humidity()
+

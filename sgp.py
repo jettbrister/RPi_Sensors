@@ -39,8 +39,8 @@ def set_baseline(eCO2_baseline, tVOC_baseline):
 	'''Sets baseline values for IAQ profile. pass (eCO2 baseline, tVOC baseline).'''
 	sgp30.set_iaq_baseline(eCO2_baseline, tVOC_baseline)
 
-def set_rh(humidity, temp_C):
-	'''Sets relative humidity for IAQ profile. Pass (humidity, temp C)'''
+def set_rh(temp_C, humidity):
+	'''Sets relative humidity for IAQ profile.'''
 	sgp30.set_iaq_relative_humidity(temp_C, humidity)
 
 # Baseline Persistence
