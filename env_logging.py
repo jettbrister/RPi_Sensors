@@ -23,10 +23,10 @@ while True:
         break
     time.sleep(max(0, next_t - time.monotonic()))
 
-#if sgp.load_baseline():
-#	print('Baseline Loaded')
-#else:
-#	print('No Baseline Found')
+if sgp.load_baseline():
+	print('Baseline Loaded')
+else:
+	print('No Baseline Found')
 last_baseline = time.time()
 
 while True:
