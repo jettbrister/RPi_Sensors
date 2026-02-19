@@ -1,6 +1,7 @@
 import time
 import sgp
 import bme
+import numpy as np
 
 from datetime import datetime
 import csv
@@ -11,9 +12,11 @@ time.sleep(16)
 LOG_FILE = 'environmental_log.csv'
 BASELINE_INTERVAL = 6 * 60 * 60  # 6 hours
 
+HEADER = ['timestamp','temp_c','pressure','humidity','eco2','tvoc','raw_H2','raw_Eth','baseline_eco2','baseline_tvoc']
+
 with open(LOG_FILE, 'w', newline='') as file:
 	writer = csv.writer(file)
-	writer.writerow(['timestamp','temp_c','pressure','humidity','eco2','tvoc','raw_H2','raw_Eth','baseline_eco2','baseline_tvoc'])
+	writer.writerow(HEADER)
 
 next_t = time.monotonic()
 
@@ -30,6 +33,14 @@ else:
 last_baseline = time.time()
 current_min = datetime.now().minute
 
+temp_c, pressure, humidity = bme.read(F=False)
+sgp.sgp30.set_iaq_relative_humidity(temp_c,humidity)
+eco2, tvoc = sgp.read()
+raw_H2, raw_Eth = sgp.raw_values()
+baseline_eco2, baseline_tvoc = sgp.read_baseline()
+data = [0,temp_c,pressure,humidity,eco2,tvoc,raw_H2,raw_Eth,baseline_eco2,baseline_tvoc]
+data_array = np.array(data)
+
 while True:
 	try:
 		temp_c, pressure, humidity = bme.read(F=False)
@@ -37,12 +48,17 @@ while True:
 		eco2, tvoc = sgp.read()
 		raw_H2, raw_Eth = sgp.raw_values()
 		baseline_eco2, baseline_tvoc = sgp.read_baseline()
+		data = [0,temp_c,pressure,humidity,eco2,tvoc,raw_H2,raw_Eth,baseline_eco2,baseline_tvoc]
+		data_array = np.vstack([data_array, data])
 		if datetime.now().minute != current_min:
+			avg_vals = list(np.mean(data_array, axis=0))
+			avg_vals[0] = datetime.now()
 			with open(LOG_FILE, 'a') as file:
 				writer = csv.writer(file)
-				writer.writerow([datetime.now(), temp_c, pressure, humidity, eco2, tvoc, raw_H2, raw_Eth, baseline_eco2, baseline_tvoc])
+				writer.writerow(avg_vals)
+			data_array = np.array(data)
 			current_min = datetime.now().minute
-#			print('Data Point Logged')
+			print('Data Point Logged')
 #		print(f"{temp_c:.2f}", f"{pressure:.2f}", f"{humidity:.2f}", eco2, tvoc, raw_H2, raw_Eth, baseline_eco2, baseline_tvoc)
 		if time.time() - last_baseline > BASELINE_INTERVAL:
 			sgp.save_baseline()
