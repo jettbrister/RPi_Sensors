@@ -28,7 +28,7 @@ if sgp.load_baseline():
 else:
 	print('No Baseline Found')
 last_baseline = time.time()
-current_min = 999
+current_min = datetime.now().minute
 
 while True:
 	try:
