@@ -28,6 +28,7 @@ if sgp.load_baseline():
 else:
 	print('No Baseline Found')
 last_baseline = time.time()
+current_min = 999
 
 while True:
 	try:
@@ -36,9 +37,12 @@ while True:
 		eco2, tvoc = sgp.read()
 		raw_H2, raw_Eth = sgp.raw_values()
 		baseline_eco2, baseline_tvoc = sgp.read_baseline()
-		with open(LOG_FILE, 'a') as file:
-			writer = csv.writer(file)
-			writer.writerow([datetime.today(), temp_c, pressure, humidity, eco2, tvoc, raw_H2, raw_Eth, baseline_eco2, baseline_tvoc])
+		if datetime.now().minute != current_min:
+			with open(LOG_FILE, 'a') as file:
+				writer = csv.writer(file)
+				writer.writerow([datetime.now(), temp_c, pressure, humidity, eco2, tvoc, raw_H2, raw_Eth, baseline_eco2, baseline_tvoc])
+			current_min = datetime.now().minute
+			print('Data Point Logged')
 		print(f"{temp_c:.2f}", f"{pressure:.2f}", f"{humidity:.2f}", eco2, tvoc, raw_H2, raw_Eth, baseline_eco2, baseline_tvoc)
 		if time.time() - last_baseline > BASELINE_INTERVAL:
 			sgp.save_baseline()
