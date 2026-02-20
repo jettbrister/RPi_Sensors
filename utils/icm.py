@@ -10,18 +10,18 @@ imu = icm20948.ICM20948()
 
 # Initialize accelerometer and gyro settings
 
-imu.set_accelerometer_sample_rate() '''value in hz, default=125'''
-imu.set_accelerometer_full_scale() '''2, 4, 8, 16 g, default=16'''
+imu.set_accelerometer_sample_rate() #value in hz, default=125
+imu.set_accelerometer_full_scale() #2, 4, 8, 16 g, default=16
 #imu.set_accelerometer_low_pass() No Clue Yet
 
-imu.set_gyro_sample_rate() '''value in hz, default=125'''
-set_gyro_full_scale() '''250, 500, 1000, 2000 dps, default=250'''
+imu.set_gyro_sample_rate() #value in hz, default=125
+imu.set_gyro_full_scale() #250, 500, 1000, 2000 dps, default=250
 #set_gyro_low_pass() No CLue Yet
 
 
 # Read magnetometer calibration data into dict
 mag_calibration = []
-with open('mag_calibration.csv', 'r') as file:
+with open('utils/mag_calibration.csv', 'r') as file:
     for line in file:
         mag_calibration.append(line.strip().split(','))
 mag_calibration = dict(zip(mag_calibration[0],(float(x) for x in mag_calibration[1])))
@@ -65,7 +65,7 @@ def temp(Fahrenheit=True):
     if Fahrenheit:
         return (imu.read_temperature() * 9/5) + 32
     else:
-        return imu.read_temperature
+        return imu.read_temperature()
 
 def total_accel():
     '''Returns total acceleration scalar'''
