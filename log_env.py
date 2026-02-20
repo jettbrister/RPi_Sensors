@@ -64,7 +64,7 @@ while True:
 		baseline_eco2, baseline_tvoc = sgp.read_baseline()
 		data = [0,temp_c,icm_temp_c,pressure,humidity,eco2,tvoc,raw_H2,raw_Eth,baseline_eco2,baseline_tvoc]
 		data_array = np.vstack([data_array, data])
-		if datetime.now().minute != current_min:
+		if datetime.now().second in [0,30]:
 			avg_vals = list(np.mean(data_array, axis=0))
 			avg_vals[0] = datetime.now()
 			with open(LOG_FILE, 'a') as file:
