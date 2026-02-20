@@ -67,7 +67,7 @@ while True:
 			data_array = np.array(data)
 			current_min = datetime.now().minute
 #			print('Data Point Logged')
-		print(f"{temp_c:.2f}", f"{pressure:.2f}", f"{humidity:.2f}", eco2, tvoc, raw_H2, raw_Eth, baseline_eco2, baseline_tvoc)
+#		print(f"{temp_c:.2f}", f"{pressure:.2f}", f"{humidity:.2f}", eco2, tvoc, raw_H2, raw_Eth, baseline_eco2, baseline_tvoc)
 		if time.time() - last_baseline > BASELINE_INTERVAL:
 			sgp.save_baseline()
 			last_baseline = time.time()
