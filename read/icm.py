@@ -1,18 +1,10 @@
 import time
-import sgp
-
-warmup=0
-while warmup<16:
-	print('Warming Up')
-	warmup+=1
-	time.sleep(1)
-
+from utils import icm
+t = time.perf_counter()
 while True:
 	try:
-		eco2 = sgp.eCO2()
-		tvoc = sgp.tVOC()
-		print(eco2, tvoc)
-		time.sleep(1)
+		accel, gyro, mag, temp = icm.read()
+		print(accel,gyro,mag)
 	except KeyboardInterrupt:
 		print('Program stopped')
 		break

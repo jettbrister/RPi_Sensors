@@ -1,5 +1,6 @@
 import numpy as np
-import imufusion, sys, time, icm
+import imufusion, sys, time
+from utils import icm
 
 ahrs = imufusion.Ahrs()
 ahrs.settings = imufusion.Settings(

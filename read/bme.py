@@ -1,10 +1,11 @@
 import time
-import icm
-t = time.perf_counter()
+from utils import bme
+
 while True:
 	try:
-		accel, gyro, mag, temp = icm.read()
-		print(accel,gyro,mag)
+		temp, pressure, humidity = bme.read()
+		print(temp, pressure, humidity)
+		time.sleep(1)
 	except KeyboardInterrupt:
 		print('Program stopped')
 		break

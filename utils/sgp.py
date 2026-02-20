@@ -3,7 +3,7 @@ import time
 import json
 import os
 # Uses ADD PACKAGE NAME
-from sgp30 import SGP30
+from utils.sgp30 import SGP30
 
 # Initialize sensor
 sgp30 = SGP30(bus=1)
