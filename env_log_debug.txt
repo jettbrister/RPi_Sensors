@@ -1,15 +1,1 @@
 nohup: ignoring input
-Traceback (most recent call last):
-  File "/home/jbrister/python/sensors/log_env.py", line 2, in <module>
-    from utils import sgp, bme, icm
-  File "/home/jbrister/python/sensors/utils/sgp.py", line 9, in <module>
-    sgp30 = SGP30(bus=1)
-            ^^^^^^^^^^^^
-  File "/home/jbrister/python/sensors/utils/sgp30.py", line 35, in __init__
-    self.serial = self._i2c_read_words_from_cmd([0x36, 0x82], 0.01, 3)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jbrister/python/sensors/utils/sgp30.py", line 150, in _i2c_read_words_from_cmd
-    self.bus.i2c_rdwr(read)
-  File "/home/jbrister/python/sensors/venv/lib/python3.11/site-packages/smbus2/smbus2.py", line 669, in i2c_rdwr
-    ioctl(self.fd, I2C_RDWR, ioctl_data)
-OSError: [Errno 5] Input/output error
