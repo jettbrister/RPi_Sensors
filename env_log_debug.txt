@@ -1,1 +1,8 @@
 nohup: ignoring input
+Traceback (most recent call last):
+  File "/home/jbrister/python/sensors/log_env.py", line 2, in <module>
+    from utils import sgp, bme, icm
+  File "/home/jbrister/python/sensors/utils/icm.py", line 24, in <module>
+    with open('utils/mag_calibration.csv', 'r') as file:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'utils/mag_calibration.csv'
