@@ -18,7 +18,7 @@ def temp_c():
 
 def pressure():
     '''Returns pressure. Units: hPa.'''
-    return bme280.sample(calibration_params).pressure
+    return bme280.sample(calibration_params).pressure + 191.61387819943286 # Calibration
 
 def humidity():
     '''Returns RH in %.'''
