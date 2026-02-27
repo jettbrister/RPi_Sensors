@@ -1,16 +1,1 @@
 nohup: ignoring input
-Traceback (most recent call last):
-  File "/home/jbrister/python/sensors/log_env.py", line 2, in <module>
-    from utils import sgp, bme, icm
-  File "/home/jbrister/python/sensors/utils/bme.py", line 7, in <module>
-    calibration_params = bme280.load_calibration_params()
-                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jbrister/python/sensors/venv/lib/python3.11/site-packages/bme280/__init__.py", line 155, in load_calibration_params
-    compensation_params.dig_T1 = read.unsigned_short(0x88)
-                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jbrister/python/sensors/venv/lib/python3.11/site-packages/bme280/reader.py", line 40, in unsigned_short
-    return self._bus.read_word_data(self._address, register) & 0xffff
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/jbrister/python/sensors/venv/lib/python3.11/site-packages/smbus2/smbus2.py", line 485, in read_word_data
-    ioctl(self.fd, I2C_SMBUS, msg)
-OSError: [Errno 5] Input/output error
