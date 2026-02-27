@@ -13,9 +13,9 @@ BASELINE_INTERVAL = (60*60) * 12  # hours
 
 HEADER = ['timestamp','temp_c','icm_temp_c','pressure','humidity','eco2','tvoc','raw_H2','raw_Eth','baseline_eco2','baseline_tvoc']
 
-with open(LOG_FILE, 'w', newline='') as file:
-	writer = csv.writer(file)
-	writer.writerow(HEADER)
+#with open(LOG_FILE, 'w', newline='') as file:
+#	writer = csv.writer(file)
+#	writer.writerow(HEADER)
 
 next_t = time.monotonic()
 
