@@ -1,1 +1,4 @@
 nohup: ignoring input
+Warming Up SGP30...
+No Baseline Found
+An unexpected error occurred: [Errno 5] Input/output error
