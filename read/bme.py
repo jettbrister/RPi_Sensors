@@ -3,9 +3,9 @@ from utils import bme
 
 while True:
 	try:
-		temp, pressure, humidity = bme.read()
+		temp, pressure, humidity = bme.read(F=False)
 		print(temp, pressure, humidity)
-		time.sleep(1)
+		time.sleep(10)
 	except KeyboardInterrupt:
 		print('Program stopped')
 		break
