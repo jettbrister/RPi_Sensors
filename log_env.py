@@ -23,7 +23,7 @@ while True:
 	temp_c, pressure, humidity = bme.read(F=False)
 	icm_temp_c = icm.temp(Fahrenheit=False)
 	#avg_temp = (temp_c + icm_temp_c) / 2
-	sgp.sgp30.set_iaq_relative_humidity(temp_c,humidity)
+#	sgp.sgp30.set_iaq_relative_humidity(temp_c,humidity)
 	eco2, tvoc = sgp.read()
 	if tvoc > 0:
 		time.sleep(max(0, next_t - time.monotonic()))
@@ -42,7 +42,7 @@ current_min = datetime.now().minute
 temp_c, pressure, humidity = bme.read(F=False)
 icm_temp_c = icm.temp(Fahrenheit=False)
 #avg_temp = (temp_c + icm_temp_c) / 2
-sgp.sgp30.set_iaq_relative_humidity(temp_c,humidity)
+#sgp.sgp30.set_iaq_relative_humidity(temp_c,humidity)
 eco2, tvoc = sgp.read()
 raw_H2, raw_Eth = sgp.raw_values()
 baseline_eco2, baseline_tvoc = sgp.read_baseline()
@@ -58,7 +58,7 @@ while True:
 		temp_c, pressure, humidity = bme.read(F=False)
 		icm_temp_c = icm.temp(Fahrenheit=False)
 		#avg_temp = (temp_c + icm_temp_c) / 2
-		sgp.sgp30.set_iaq_relative_humidity(temp_c,humidity)
+#		sgp.sgp30.set_iaq_relative_humidity(temp_c,humidity)
 		eco2, tvoc = sgp.read()
 		raw_H2, raw_Eth = sgp.raw_values()
 		baseline_eco2, baseline_tvoc = sgp.read_baseline()
