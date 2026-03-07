@@ -1,4 +1,4 @@
 nohup: ignoring input
 Warming Up SGP30...
 Baseline Loaded
-An unexpected error occurred: [Errno 5] Input/output error
+An unexpected error occurred: [Errno 13] Permission denied: 'environmental_log.csv'

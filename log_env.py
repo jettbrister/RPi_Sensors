@@ -75,7 +75,7 @@ while True:
 #			print('Data Point Logged')
 #		print(f"{temp_c:.2f}", f"{pressure:.2f}", f"{humidity:.2f}", eco2, tvoc, raw_H2, raw_Eth, baseline_eco2, baseline_tvoc, icm_temp_c)
 		if time.time() - last_baseline > BASELINE_INTERVAL:
-			sgp.save_baseline()
+			#sgp.save_baseline()
 			last_baseline = time.time()
 		next_t += 1
 		time.sleep(max(0, next_t - time.monotonic()))
