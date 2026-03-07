@@ -1,1 +1,26 @@
 nohup: ignoring input
+Warming Up SGP30...
+Traceback (most recent call last):
+  File "/home/jbrister/python/sensors/log_env.py", line 27, in <module>
+    eco2, tvoc = sgp.read()
+                 ^^^^^^^^^^
+  File "/home/jbrister/python/sensors/utils/sgp.py", line 26, in read
+    return eCO2(), tVOC()
+                   ^^^^^^
+  File "/home/jbrister/python/sensors/utils/sgp.py", line 22, in tVOC
+    return sgp30.TVOC
+           ^^^^^^^^^^
+  File "/home/jbrister/python/sensors/utils/sgp30.py", line 56, in TVOC
+    return self.iaq_measure()[1]
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/jbrister/python/sensors/utils/sgp30.py", line 86, in iaq_measure
+    return self._run_profile(("iaq_measure", [0x20, 0x08], 2, 0.05))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jbrister/python/sensors/utils/sgp30.py", line 134, in _run_profile
+    return self._i2c_read_words_from_cmd(command, delay, signals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jbrister/python/sensors/utils/sgp30.py", line 150, in _i2c_read_words_from_cmd
+    self.bus.i2c_rdwr(read)
+  File "/home/jbrister/python/sensors/venv/lib/python3.11/site-packages/smbus2/smbus2.py", line 669, in i2c_rdwr
+    ioctl(self.fd, I2C_RDWR, ioctl_data)
+OSError: [Errno 5] Input/output error
