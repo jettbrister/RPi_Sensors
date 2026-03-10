@@ -46,7 +46,8 @@ sgp.sgp30.set_iaq_relative_humidity(temp_c,humidity)
 eco2, tvoc = sgp.read()
 raw_H2, raw_Eth = sgp.raw_values()
 baseline_eco2, baseline_tvoc = sgp.read_baseline()
-data = [0,temp_c,icm_temp_c,pressure,humidity,eco2,tvoc,raw_H2,raw_Eth,baseline_eco2,baseline_tvoc]
+raw_pressure = bme.raw_pressure()
+data = [0,temp_c,icm_temp_c,pressure,raw_pressure,humidity,eco2,tvoc,raw_H2,raw_Eth,baseline_eco2,baseline_tvoc]
 data_array = np.array(data)
 
 next_t = time.monotonic()
