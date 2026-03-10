@@ -4,8 +4,10 @@ from utils import bme
 while True:
 	try:
 		temp, pressure, humidity = bme.read(F=False)
-		print(temp, pressure, humidity)
-		time.sleep(10)
+		raw_humidity = bme.raw_humidity()
+		raw_pressure = bme.raw_pressure()
+		print(temp, pressure, raw_pressure, humidity, raw_humidity)
+		time.sleep(1)
 	except KeyboardInterrupt:
 		print('Program stopped')
 		break

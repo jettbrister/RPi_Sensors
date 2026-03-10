@@ -3,8 +3,7 @@ from utils import icm
 t = time.perf_counter()
 while True:
 	try:
-		accel, gyro, mag, temp = icm.read()
-		print(accel,gyro,mag)
+		print(icm.full_read())
 	except KeyboardInterrupt:
 		print('Program stopped')
 		break
