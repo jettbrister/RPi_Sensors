@@ -9,7 +9,7 @@ from utils.sgp30 import SGP30
 sgp30 = SGP30(bus=1)
 
 # Baseline File:
-BASELINE_FILE = 'sgp30_baseline.json'
+BASELINE_FILE = 'utils/sgp30_baseline.json'
 
 # Functions for reading data:
 

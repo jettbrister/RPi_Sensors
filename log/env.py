@@ -8,7 +8,7 @@ import csv
 print('Warming Up SGP30...')
 time.sleep(16)
 
-LOG_FILE = 'env.csv'
+LOG_FILE = 'logfiles/env.csv'
 BASELINE_INTERVAL = (60*60) * 12  # hours
 
 HEADER = ['timestamp','temp_c','icm_temp_c','pressure','raw_pres','humidity','raw_humidity','eco2','tvoc','raw_H2','raw_Eth','baseline_eco2','baseline_tvoc']
