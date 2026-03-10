@@ -77,4 +77,4 @@ def read():
 
 def full_read():
     '''Returns scalars X, Y, Z for accel, gyro, mag, temp in F.'''
-    return accel(), gyro(), mag(), temp()
+    return accel(), gyro(), mag(), temp(), total_accel()
