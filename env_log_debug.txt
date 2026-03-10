@@ -1,4 +1,4 @@
 nohup: ignoring input
 Warming Up SGP30...
 Baseline Loaded
-An unexpected error occurred: [Errno 5] Input/output error
+An unexpected error occurred: all the input array dimensions except for the concatenation axis must match exactly, but along dimension 1, the array at index 0 has size 11 and the array at index 1 has size 12

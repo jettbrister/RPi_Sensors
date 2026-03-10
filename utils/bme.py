@@ -20,6 +20,10 @@ def pressure():
     '''Returns pressure. Units: hPa.'''
     return 2.5003451253564237 * bme280.sample(calibration_params).pressure - 1044.005342010485 # Calibration
 
+def raw_pressure():
+    '''Returns raw pressure. Units: hPa.'''
+    return bme280.sample(calibration_params).pressure
+
 def humidity():
     '''Returns RH in %.'''
     return bme280.sample(calibration_params).humidity + 6.702274620587076 # Calibration
