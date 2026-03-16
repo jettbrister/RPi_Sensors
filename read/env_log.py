@@ -4,7 +4,7 @@ from datetime import datetime
 while True:
 	try:
 		if datetime.now().second == 15 or datetime.now().second == 45:
-			data = pd.read_csv('environmental_log.csv')
+			data = pd.read_csv('logfiles/env.csv')
 			print(data.tail(1).to_string(index=False, header=False))
 			time.sleep(1)
 		else:
